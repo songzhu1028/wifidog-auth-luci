@@ -6,7 +6,6 @@ end
 
 function validate()
 	--http://192.168.1.220/cgi-bin/luci/auth/auth/?stage=login&ip=192.168.1.104&mac=50:e5:49:5e:8d:2d&token=f3c58dd37b65f5e2ac8b089685b30d731412653965&incoming=0&outgoing=0&gw_id=080027F9A44E
-	--local token="ffffffffffffffffffffffffffffffffffffff";
 	--local tempfile = io.open("/tmp/wifidog-auth/"..token, "w+")
 
 	local token = luci.http.formvalue("token")
