@@ -27,7 +27,7 @@ define Package/$(PKG_NAME)
   SECTION:=net
   CATEGORY:=Network
   TITLE:=wifidog auth server writed in lua
-  URL:=http://www.yodop.com/study_data/
+  URL:=http://www.yodop.com/
 endef
 
 define Package/$(PKG_NAME)/description
