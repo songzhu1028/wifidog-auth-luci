@@ -18,7 +18,7 @@ function logging()
 		end
 		local dir = io.open("/tmp/wifidog-auth")
 		if not dir then
-			nixio.fs.mkdir("/tmp/wifidog-auth","rwxrwxrwx")
+			luci.fs.mkdir("/tmp/wifidog-auth","rwxrwxrwx")
 		end
 		local file = io.open("/tmp/wifidog-auth/"..token, "w+")
 		--luci.http.write("http://"..gw_address..":"..gw_port.."/wifidog/auth?token="..token)

@@ -35,8 +35,8 @@ define Build/Configure
 endef
 
 define Package/$(PKG_NAME)/install
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)/
-	$(CP) ./files/*.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)/
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controller/$(PKG_NAME)/
+	$(CP) ./files/*.lua $(1)/usr/lib/lua/luci/controller/$(PKG_NAME)/
 #	$(INSTALL_DATA) ./files/*.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
 
 endef
