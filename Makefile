@@ -8,17 +8,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wifidog-auth
-PKG_VERSION:=master
+PKG_VERSION:=20141009
 PKG_RELEASE=1
 
-PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/songzhu1028/wifidog-auth-luci.git
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
-PKG_SOURCE_VERSION:=master
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
-
-# PKG_FIXUP:=autoreconf
-PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -26,8 +18,10 @@ define Package/$(PKG_NAME)
   SUBMENU:=Captive Portals
   SECTION:=net
   CATEGORY:=Network
-  TITLE:=wifidog auth server writed in lua
+  TITLE:=wifidog auth server
   URL:=http://www.yodop.com/
+  MAINTAINER:=Colin <colin.song@outlook.com>
+  PKGARCH:=all
 endef
 
 define Package/$(PKG_NAME)/description
@@ -37,12 +31,19 @@ define Package/$(PKG_NAME)/description
 	of their Internet connection.
 endef
 
+define Build/Compile
+endef
+
+define Build/Configure
+endef
+
 define Package/$(PKG_NAME)/install
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/login.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/auth.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/ping.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/portal.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/gw_message.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
+	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)/
+	$(INSTALL_DATA) ./files/login.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)/
+	$(INSTALL_DATA) ./files/auth.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
+	$(INSTALL_DATA) ./files/ping.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
+	$(INSTALL_DATA) ./files/portal.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
+	$(INSTALL_DATA) ./files/gw_message.lua $(1)/usr/lib/lua/luci/controler/$(PKG_NAME)
 
 endef
 
