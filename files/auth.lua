@@ -12,7 +12,7 @@ function validate()
 	if token then
 		local file = io.open("/tmp/wifidog-auth/"..token)
 		if file then
-			luci.fs.unlink("/tmp/wifidog-auth/"..token)
+			os.remove("/tmp/wifidog-auth/"..token)
 			luci.http.write("Auth: 1")
 		else
 			luci.http.write("Auth: 0")
