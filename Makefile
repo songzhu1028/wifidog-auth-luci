@@ -4,7 +4,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 #
-#makefile refer to : package/network/utils/iwcap/
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=wifidog-auth
